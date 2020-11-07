@@ -1,0 +1,47 @@
+<html>
+    <head><link rel="stylesheet"href="style.css" type="text/css">
+    <title>My First Canvas Project</title>
+    </head>
+    <body class="background">
+        <center>
+        <h1>My First Canvas Project</h1>
+        <canvas id="My_Canvas" width="800" heigth="600"></canvas>
+        <br>
+        <span>
+            Colour-
+        </span>
+        <input type="text"id="Colour">
+        <br>
+        <button id="button"onclick="Clear_Canvas()">Clear</button>
+        </center>
+        <script>
+            canvas=document.getElementById("My_Canvas");
+            ctx=canvas.getContext("2d");
+            color="blue";
+            ctx.beginPath();
+            ctx.strokestyle="color";
+             ctx.linewidth=2;
+             ctx.arc(200,200,40,0,2*Math.PI);
+             ctx.stroke();
+             canvas.addEventListener("mousedown",mouseclick);
+             function mouseclick(e){
+                 color=document.getElementById("Colour").value;
+                 console.log(color);
+                 console.log("X="+mousex+",Y="+mousey);
+                 circle(mousex,mousey);
+                 
+             }
+             function circle(mousex,mousey){
+                ctx.beginPath();
+            ctx.strokestyle="color";
+             ctx.linewidth=2;
+             ctx.arc(mousex,mousey,40,0,2*Math.PI);
+             ctx.stroke();
+             }
+             function Clear_Canvas(){
+                 ctx.cleaRect(0,0,canvas.width,canvas.height);
+             }
+             
+        </script>
+    </body>
+</html>
